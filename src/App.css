@@ -39,3 +39,7 @@ a
   cursor: pointer;
   border-radius: 10px;
 }
+.container
+{
+  padding: 0 1rem;
+}

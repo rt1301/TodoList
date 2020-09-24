@@ -1,10 +1,11 @@
 import React from 'react';
-
-function Header()
+import AddTodo from '../AddTodo';
+function Header(props)
 {
     return(
         <header style={headerStyle}>
             <h1>TodoList</h1>
+            <AddTodo addTodo={props.addTodo} />
         </header>
     )
 }

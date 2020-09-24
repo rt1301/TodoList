@@ -1,6 +1,6 @@
 import React from 'react';
 import Todos from './components/Todos';
-import Header from './components/layout/Header'
+import Header from './components/layout/Header';
 import './App.css';
 class App extends React.Component {
   constructor(props) {
@@ -49,12 +49,24 @@ class App extends React.Component {
   ]
 })
  }
+/* Add Todo */
+addTodo = (title)=>{
+const newTodo = {
+  id: this.state.todos.length + 1,
+  title: title,
+  completed: false
+}
+this.setState({todos: [...this.state.todos,newTodo]});
+}
   render()
   {
     return (
       <div className="App" style={{height:"500px"}}>
-        <Header></Header>
+        <div className="container">
+        <Header addTodo={this.addTodo}></Header>
         <Todos todos={this.state.todos} delete={this.delete} markComplete={this.markComplete}></Todos>
+        </div>
+       
       </div>
     );
   }

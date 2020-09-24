@@ -1,5 +1,6 @@
 import React from 'react';
 import Todos from './components/Todos';
+import Header from './components/layout/Header'
 import './App.css';
 class App extends React.Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class App extends React.Component {
   {
     return (
       <div className="App" style={{height:"500px"}}>
-        <h1>App</h1>
+        <Header></Header>
         <Todos todos={this.state.todos} delete={this.delete} markComplete={this.markComplete}></Todos>
       </div>
     );

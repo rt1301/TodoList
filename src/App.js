@@ -1,6 +1,8 @@
 import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Todos from './components/Todos';
 import Header from './components/layout/Header';
+import About from './components/pages/About';
 import './App.css';
 class App extends React.Component {
   constructor(props) {
@@ -61,13 +63,19 @@ this.setState({todos: [...this.state.todos,newTodo]});
   render()
   {
     return (
+      <Router>
       <div className="App" style={{height:"500px"}}>
         <div className="container">
-        <Header addTodo={this.addTodo}></Header>
-        <Todos todos={this.state.todos} delete={this.delete} markComplete={this.markComplete}></Todos>
+          <Route exact path="/" render={props=>(
+            <React.Fragment>
+              <Header addTodo={this.addTodo}></Header>
+              <Todos todos={this.state.todos} delete={this.delete} markComplete={this.markComplete}></Todos>
+            </React.Fragment>
+          )}></Route>
+          <Route path="/about" component={About}></Route>
         </div>
-       
       </div>
+      </Router>
     );
   }
   

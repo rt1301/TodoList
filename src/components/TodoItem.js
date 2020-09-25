@@ -19,5 +19,7 @@ export class TodoItem extends React.Component {
 /* Prop Types */
 TodoItem.propTypes = {
     todo: PropTypes.object.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delete: PropTypes.func.isRequired
 }
 export default TodoItem;
